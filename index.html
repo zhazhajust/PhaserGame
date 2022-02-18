@@ -37,8 +37,8 @@
     </div>
 
     <h1 class="title">--五子棋--</h1>
-    
-    <canvas class="chess" width="450px" height="450px"></canvas>
+
+    <canvas class="chess" width="300px" height="300px"></canvas>
 
     <div>   
         <a class="reStart" onclick="rst()">重新开始</a>
@@ -50,7 +50,7 @@
 <script>
     var chess =  document.getElementsByClassName("chess")[0];
     var context =  chess.getContext("2d");
-    //context.strokeStyle = "black";
+    context.strokeStyle = "black";
 
     window.onload=function(){
         drawChessBoard();
@@ -58,12 +58,12 @@
 
     function drawChessBoard(){
         for(var i = 0; i < 15; i++){
-            context.moveTo(15, 15 + i * 30);
-            context.lineTo(435, 15 + i * 30);
+            context.moveTo(10, 10 + i * 20);
+            context.lineTo(290, 10 + i * 20);
             context.stroke();
   
-            context.moveTo(15 + i * 30, 15);
-            context.lineTo(15 + i * 30, 435);
+            context.moveTo(10 + i * 20, 10);
+            context.lineTo(10 + i * 20, 290);
             context.stroke();
         }
     }
@@ -144,8 +144,8 @@
 
         var x = e.offsetX;
         var y = e.offsetY;
-        var i = Math.floor(x/30);
-        var j = Math.floor(y/30);
+        var i = Math.floor(x/20);
+        var j = Math.floor(y/20);
 
         if(chessBoard[i][j] == 0){
 
@@ -177,7 +177,7 @@
 
     function oneStep(i, j, me){
         context.beginPath();
-        context.arc(15 + i * 30, 15 + j * 30, 13, 0, 2 * Math.PI);
+        context.arc(10 + i * 20, 10 + j * 20, 10, 0, 2 * Math.PI);
         context.closePath();
 
         var color;
